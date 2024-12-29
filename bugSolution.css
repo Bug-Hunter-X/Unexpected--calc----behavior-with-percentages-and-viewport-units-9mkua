@@ -1,0 +1,23 @@
+/* bug.css */
+.element {
+  width: calc(50% - 10vw);
+}
+
+/* bugSolution.css */
+/* Using JavaScript to dynamically calculate the width */
+let element = document.querySelector('.element');
+let viewportWidth = window.innerWidth;
+let calculatedWidth = 0.5 * window.innerWidth - 0.1 * window.innerWidth;
+element.style.width = calculatedWidth + 'px';
+
+/* Alternatively, using media queries for different viewport sizes */
+@media (min-width: 768px) {
+  .element {
+    width: calc(50% - 10vw); /*This could still behave unexpectedly*/
+  }
+}
+@media (min-width: 1024px) {
+  .element {
+    width: 300px; /*Specific value for larger viewports*/
+  }
+} 
